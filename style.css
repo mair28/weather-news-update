@@ -1,49 +1,134 @@
-/* Body settings for layout centering */
+/* Body settings */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
+    overflow: hidden;
 }
 
-/* Main container that holds the entire content */
+/* Header styling */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #00aaff;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Title alignment */
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+/* Search bar container */
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+/* Search bar styling */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    background-color: #0088cc;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #005f99;
+}
+
+/* Main container settings */
 .main-container {
-    width: 80%;
+    width: 100%;
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    overflow-y: scroll;
+    height: 100vh;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-/* Heading style */
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
+
+.main-container::-webkit-scrollbar {
+    width: 0;
 }
 
-/* Flex container for current weather and map layout */
+/* Flex container for current weather and map */
 .flex-container {
     display: flex;
-    gap: 20px;
     justify-content: center;
-    margin-bottom: 20px;
-    width: 100%;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 90%;
 }
 
 /* Current weather container */
 .current {
-    width: 15%;
-    height: auto;
-    border: 1px solid #ccc;
+    width: 25%;
     padding: 10px;
-    border-radius: 8px;
     background-color: #f9f9f9;
-    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    min-height: 300px;
+    box-sizing: border-box;
+}
+
+/* Weather data styling inside the current container */
+.current h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.current .temp {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.current img {
+    margin: 10px 0;
+}
+
+.current p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
 }
 
 /* Map container */
@@ -52,39 +137,21 @@ h1 {
     height: 300px;
     border: 1px solid #ccc;
     border-radius: 8px;
-}
-
-/* Weather icon and temperature adjustment */
-.current .temp {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 8px 0;
 }
 
-.current img {
-    margin-bottom: 8px;
-}
 
-/* Weather details inside the current weather container */
-.current .details {
-    font-size: 13px;
-    color: #555;
-    margin-top: 5px;
-    text-align: center;
-}
-
-/* 3-hour forecast container */
-#weather {
+/* 3-hour forecast container styling */
+.forecast-container {
     width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
 }
 
-/* Individual forecast card styling */
 .forecast {
     width: 100%;
     border: 1px solid #ccc;

@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Current Weather and 3-Hour Forecast with OpenStreetMap</title>
+    <title>Weather and 3-Hour Forecast</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
+    <!-- Header Container -->
+    <div class="header">
+        <h1>Current Weather and 3-Hour Forecast</h1>
+        <div class="search-bar-container">
+            <div class="search-bar">
+                <input type="text" id="cityInput" placeholder="Search city" />
+                <button onclick="searchCity()">Search</button>
+            </div>
+        </div>
+    </div>    
 
     <!-- Main Container -->
     <div class="main-container">
-        <h1>Current Weather and 3-Hour Forecast with OpenStreetMap</h1>
-
         <!-- Container for Current Weather and Map -->
         <div class="flex-container">
             <!-- Current Weather Container -->
@@ -22,12 +30,11 @@
             <div id="map" class="map"></div>
         </div>
 
-        <!-- 3-Hour Weather Container -->
-        <div id="weather"></div>
+        <!-- 3-Hour Forecast Container -->
+        <div id="weather" class="forecast-container"></div>
     </div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
