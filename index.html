@@ -9,18 +9,23 @@
 </head>
 <body>
 
-    <h1>Current Weather and 3-Hour Forecast with OpenStreetMap</h1>
+    <!-- Main Container -->
+    <div class="main-container">
+        <h1>Current Weather and 3-Hour Forecast with OpenStreetMap</h1>
 
-    <!-- Map Container -->
-    <div id="map"></div>
+        <!-- Container for Current Weather and Map -->
+        <div class="flex-container">
+            <!-- Current Weather Container -->
+            <div id="currentWeather" class="current"></div>
 
-    <!-- Current Weather Container -->
-    <div id="currentWeather" class="current"></div>
+            <!-- Map Container -->
+            <div id="map" class="map"></div>
+        </div>
 
-    <!-- 3-Hour Weather Container -->
-    <div id="weather"></div>
+        <!-- 3-Hour Weather Container -->
+        <div id="weather"></div>
+    </div>
 
-    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="script.js"></script>
 

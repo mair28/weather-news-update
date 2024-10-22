@@ -1,13 +1,92 @@
-#map {
-    height: 400px;
+/* Body settings for layout centering */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Main container that holds the entire content */
+.main-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Heading style */
+h1 {
+    text-align: center;
     margin-bottom: 20px;
 }
 
-#weather, #currentWeather {
-    font-family: Arial, sans-serif;
+/* Flex container for current weather and map layout */
+.flex-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
-.forecast, .current {
+/* Current weather container */
+.current {
+    width: 15%;
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Map container */
+.map {
+    width: 65%;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Weather icon and temperature adjustment */
+.current .temp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.current img {
+    margin-bottom: 8px;
+}
+
+/* Weather details inside the current weather container */
+.current .details {
+    font-size: 13px;
+    color: #555;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* 3-hour forecast container */
+#weather {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Individual forecast card styling */
+.forecast {
+    width: 100%;
     border: 1px solid #ccc;
     padding: 10px;
     margin: 5px 0;

@@ -7,20 +7,26 @@ function displayCurrentWeather(data) {
     const cityName = data.name || 'Unknown Location';
     const countryName = data.sys?.country || '';
     const currentTemp = data.main.temp;
+    const feelsLike = data.main.feels_like;
     const weatherDescription = data.weather[0].description;
     const humidity = data.main.humidity;
     const windSpeed = data.wind.speed;
+    const pressure = data.main.pressure;
+    const visibility = (data.visibility / 1000).toFixed(1); // Convert visibility to km
     const icon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
     // Update the current weather container
     document.getElementById('currentWeather').innerHTML = `
         <h3>${cityName}, ${countryName}</h3>
-        <img src="${icon}" alt="Weather Icon">
-        <p>Temperature: ${currentTemp}°C</p>
-        <p>Weather: ${weatherDescription}</p>
-        <p>Humidity: ${humidity}%</p>
-        <p>Wind Speed: ${windSpeed} m/s</p>
+        <div class="temp">
+            <img src="${icon}" alt="Weather Icon">
+            ${currentTemp}°C
+        </div>
+        <p>Feels like: ${feelsLike}°C. ${weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1)}.</p>
     `;
+
+    // Return the city and country names for use in the forecast header
+    return `${cityName}, ${countryName}`;
 }
 
 // Fetch and display both current weather and 3-hour forecast
@@ -34,7 +40,9 @@ async function fetchWeather(lat, lon) {
         const currentResponse = await fetch(currentWeatherUrl);
         if (!currentResponse.ok) throw new Error(`Current weather error: ${currentResponse.status}`);
         const currentData = await currentResponse.json();
-        displayCurrentWeather(currentData);
+
+        // Display current weather and get location name
+        const locationName = displayCurrentWeather(currentData);
 
         // Fetch 3-hour forecast data
         const forecastResponse = await fetch(forecastUrl);
@@ -43,7 +51,7 @@ async function fetchWeather(lat, lon) {
 
         // Update the 3-hour forecast container
         const weatherDiv = document.getElementById('weather');
-        weatherDiv.innerHTML = `<h2>Next 3-Hour Forecast for [${lat.toFixed(2)}, ${lon.toFixed(2)}]</h2>`;
+        weatherDiv.innerHTML = `<h2>Next 3-Hour Forecast for ${locationName}</h2>`;
 
         // Display the next 5 forecasts (15 hours)
         forecastData.list.slice(0, 5).forEach(forecast => {
