@@ -1,6 +1,15 @@
 // Initialize the map and set the default view
-const map = L.map('map').setView([51.505, -0.09], 13);
+const map = L.map('map').setView([51.505, -0.09], 5);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+
+// Add temp_new layer for temperature visualization
+const tempNewLayer = L.tileLayer(
+    'https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=54dfecb32764672ca5eae983bceb50e6', 
+    { maxZoom: 19, opacity: 0.5 }
+);
+
+// Add temp_new layer to the map
+map.addLayer(tempNewLayer);
 
 // Function to search weather by city name
 async function searchCity() {
@@ -22,7 +31,7 @@ async function searchCity() {
         const lon = data.coord.lon;
 
         // Center the map on the searched city
-        map.setView([lat, lon], 13);
+        map.setView([lat, lon], 10);
 
         // Fetch and display weather for the searched city
         fetchWeather(lat, lon);
@@ -105,7 +114,7 @@ if (navigator.geolocation) {
         const lon = position.coords.longitude;
 
         // Center the map on user's location
-        map.setView([lat, lon], 13);
+        map.setView([lat, lon], 10);
 
         // Fetch weather data for user's location
         fetchWeather(lat, lon);
@@ -120,7 +129,7 @@ if (navigator.geolocation) {
 map.on('click', e => {
     const lat = e.latlng.lat;
     const lon = e.latlng.lng;
-    map.setView([lat, lon], 13);
+    map.setView([lat, lon], 10);
 
     // Fetch weather data for the clicked location
     fetchWeather(lat, lon);
