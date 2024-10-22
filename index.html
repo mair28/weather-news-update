@@ -17,21 +17,30 @@
                 <button onclick="searchCity()">Search</button>
             </div>
         </div>
-    </div>    
+    </div>
 
     <!-- Main Container -->
     <div class="main-container">
         <!-- Container for Current Weather and Map -->
         <div class="flex-container">
             <!-- Current Weather Container -->
-            <div id="currentWeather" class="current"></div>
+            <div id="currentWeather" class="current">
+            </div>
 
             <!-- Map Container -->
             <div id="map" class="map"></div>
         </div>
 
-        <!-- 3-Hour Forecast Container -->
-        <div id="weather" class="forecast-container"></div>
+        <!-- Container for 3-Hour Forecast and News -->
+        <div class="forecast-news-container">
+            <!-- 3-Hour Weather Container -->
+            <div id="weather" class="forecast-container">
+            </div>
+
+            <!-- Weather News Container -->
+            <div id="weatherNews" class="news-container">
+            </div>
+        </div>
     </div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>

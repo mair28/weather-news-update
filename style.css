@@ -1,34 +1,37 @@
-/* Body settings */
+/* Body settings - styling for the entire body */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #f4f4f4;
 }
 
-/* Header styling */
+/* Header - fixed top section of the page */
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 10px 20px;
+    padding: 8px 12px;
     background-color: #00aaff;
     color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     z-index: 1000;
 }
 
-/* Title alignment */
+/* Title within the header */
 .header h1 {
     margin: 0;
+    padding-left: 300px;
     font-size: 24px;
-    white-space: nowrap;
 }
 
-/* Search bar container */
+/* Container for the search bar */
 .search-bar-container {
     display: flex;
     justify-content: center;
@@ -39,18 +42,19 @@ body {
 .search-bar {
     display: flex;
     align-items: center;
-    gap: 5px;
 }
 
+/* Search bar input styling */
 .search-bar input[type="text"] {
-    padding: 8px;
+    padding: 5px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
+/* Search button styling */
 .search-bar button {
-    padding: 8px 12px;
+    padding: 5px 8px;
     font-size: 16px;
     border: none;
     background-color: #0088cc;
@@ -59,45 +63,40 @@ body {
     cursor: pointer;
 }
 
+/* Hover effect for search button */
 .search-bar button:hover {
     background-color: #005f99;
 }
 
-/* Main container settings */
+/* Main container for content layout */
 .main-container {
     width: 100%;
-    margin-top: 70px;
+    max-width: 1200px;
+    margin-top: 55px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
-    height: 100vh;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    padding: 10px;
 }
 
-
-.main-container::-webkit-scrollbar {
-    width: 0;
-}
-
-/* Flex container for current weather and map */
+/* Container for current weather and map, displayed side by side */
 .flex-container {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 20px;
-    flex-wrap: wrap;
-    width: 90%;
+    width: 100%;
+    max-width: 1000px;
+    gap: 1px; /* Space between Current Weather and Map */
+    box-sizing: border-box;
+    margin-top: 10px;
 }
 
-/* Current weather container */
+/* Current weather display styling */
 .current {
-    width: 25%;
+    width: 30%;
     padding: 10px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
-    border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,57 +105,158 @@ body {
     box-sizing: border-box;
 }
 
-/* Weather data styling inside the current container */
+/* City name and country in current weather */
 .current h3 {
     margin: 10px 0;
-    font-size: 18px;
+    font-size: 25px;
 }
 
+/* Temperature display in current weather */
 .current .temp {
-    font-size: 28px;
+    font-size: 15px;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 5px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1px;
 }
 
+/* Weather icon in current weather */
 .current img {
-    margin: 10px 0;
+    width: 80px;
+    height: 80px;
+    margin: 5px 0;
 }
 
+/* Additional info (feels like, description) in current weather */
 .current p {
     margin: 5px 0;
     font-size: 14px;
     color: #555;
 }
 
-/* Map container */
+/* Map container styling */
 .map {
-    width: 65%;
+    width: 70%;
     height: 300px;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-sizing: border-box;
+    background-color: #e0e0e0;
 }
 
+/* Container for 3-hour forecast and news */
+.forecast-news-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1000px;
+    gap: 1px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
 
-/* 3-hour forecast container styling */
+/* 3-hour forecast display styling */
 .forecast-container {
-    width: 80%;
+    width: 50%;
+    padding: 10px;
+    background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    box-sizing: border-box;
+    gap: 8px; /* Space between forecast items */
 }
 
+/* Individual forecast entry styling */
 .forecast {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    margin: 4px 0;
     border: 1px solid #ccc;
-    padding: 10px;
-    margin: 5px 0;
     border-radius: 5px;
+    background-color: #fff;
+}
+
+/* Date and time display in forecast */
+.forecast .date {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    width: 25%;
+}
+
+/* Container for weather icon and temperature in forecast */
+.forecast .icon-temp {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    width: 25%;
+}
+
+/* Weather icon in forecast */
+.forecast img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Temperature display in forecast */
+.forecast .temp {
+    font-size: 16px;
+    font-weight: bold;
+    color: #444;
+}
+
+/* Weather description in forecast */
+.forecast .description {
+    font-size: 14px;
+    color: #777;
+    text-align: right;
+    width: 50%;
+}
+
+/* News container styling */
+.news-container {
+    width: 50%;
+    padding: 10px;
     background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* Individual news article styling */
+.news-article {
+    margin-bottom: 4px;
+}
+
+/* News article title styling */
+.news-article h3 {
+    margin: 1px 0;
+    font-size: 16px;
+}
+
+/* News article description styling */
+.news-article p {
+    margin: 2px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Read more link styling in news article */
+.news-article a {
+    display: inline-block;
+    margin-top: 1px;
+    font-size: 14px;
+    color: #0088cc;
+    text-decoration: none;
+}
+
+/* Hover effect for read more link in news article */
+.news-article a:hover {
+    text-decoration: underline;
 }
