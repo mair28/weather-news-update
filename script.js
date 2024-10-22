@@ -31,6 +31,13 @@ async function searchCity() {
     }
 }
 
+// Add event listener for "Enter" key on the input field
+document.getElementById('cityInput').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        searchCity();
+    }
+});
+
 // Existing function to display current weather information
 function displayCurrentWeather(data) {
     const cityName = data.name || 'Unknown Location';
