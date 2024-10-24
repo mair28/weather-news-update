@@ -64,7 +64,7 @@ async function fetchWeatherNews() {
 
         // Filter and display articles with keyword in the title
         const stormArticles = data.news.filter(article => 
-            article.title.toLowerCase().includes('storm')
+            article.description.toLowerCase().includes('storm')
         );
 
         // Display top 5 storm-related articles
@@ -183,6 +183,9 @@ if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
+
+        // Center the map on user's location
+        map.setView([lat, lon], 10);
 
         // Fetch weather data for user's location
         fetchWeather(lat, lon);
