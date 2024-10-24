@@ -4,7 +4,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 
 
 // Add temp_new layer for temperature visualization
 const tempNewLayer = L.tileLayer(
-    'https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=54dfecb32764672ca5eae983bceb50e6',
+    'https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=54dfecb32764672ca5eae983bceb50e6',
     { maxZoom: 19, opacity: 0.5 }
 );
 
