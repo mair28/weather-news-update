@@ -51,7 +51,7 @@ document.getElementById('cityInput').addEventListener('keypress', function (e) {
 // Function to fetch weather news for the Philippines
 async function fetchWeatherNews() {
     const apiKey = '0gAYDSISVv-BJD2WHuzSgBkY5gC6Rz8KZ3xx9oBYHqcbTtvi';
-    const newsUrl = `https://api.currentsapi.services/v1/search?apiKey=${apiKey}&country=PH&category=weather`;
+    const newsUrl = `https://api.currentsapi.services/v1/latest-news?apiKey=${apiKey}&country=PH`;
 
     try {
         // Fetch weather news data
@@ -62,8 +62,13 @@ async function fetchWeatherNews() {
         const newsDiv = document.getElementById('weatherNews');
         newsDiv.innerHTML = '<h2>Weather News in the Philippines</h2>';
 
-        // Display top 5 news articles
-        data.news.slice(0, 5).forEach(article => {
+        // Filter and display articles with keyword in the title
+        const stormArticles = data.news.filter(article => 
+            article.title.toLowerCase().includes('storm')
+        );
+
+        // Display top 5 storm-related articles
+        stormArticles.slice(0, 5).forEach(article => {
             const { title, description, url } = article;
 
             newsDiv.innerHTML += `
@@ -79,7 +84,7 @@ async function fetchWeatherNews() {
     }
 }
 
-// Fetch weather news on page load
+// Fetch filtered weather news on page load
 fetchWeatherNews();
 
 // Function to display current weather and return city name
